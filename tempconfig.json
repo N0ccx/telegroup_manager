@@ -1,0 +1,14 @@
+{
+  "group_config": {
+    "group_title": "{{FULL_NAME}}",
+    "public_username_base": "{{SHORT_NAME}}Circle",
+    "welcome_message": "⚠️ Welcome to the {{SHORT_NAME}} Circle."
+  },
+  "community": {
+    "name": "{{FULL_NAME}}",
+    "hashtags": [
+      "#{{SHORT_NAME}}",
+      "#{{TAG_NAME}}"
+    ]
+  }
+}

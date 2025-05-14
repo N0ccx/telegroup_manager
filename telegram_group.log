@@ -1,0 +1,104 @@
+2025-05-13 10:34:09,165 - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-05-13 10:34:12,514 - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-05-13 10:34:39,687 - INFO - Phone migrated to 4
+2025-05-13 10:34:40,467 - INFO - Reconnecting to new data center 4
+2025-05-13 10:34:41,188 - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-05-13 10:34:41,189 - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-05-13 10:34:41,190 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-05-13 10:34:44,602 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-05-13 10:36:32,703 - INFO - Starting group creation wizard
+2025-05-13 10:36:33,224 - INFO - Successfully resolved user: @n0ccx
+2025-05-13 10:36:33,828 - INFO - Successfully resolved user: @blaine6661
+2025-05-13 10:36:34,545 - INFO - Successfully resolved user: @MissRose_bot
+2025-05-13 10:36:35,109 - ERROR - Could not resolve @ShieldyBot: Nobody is using this username, or the username is unacceptable. If the latter, it must match r"[a-zA-Z][\w\d]{3,30}[a-zA-Z\d]" (caused by ResolveUsernameRequest)
+2025-05-13 10:36:35,774 - ERROR - Could not resolve @cherry_community_bot: No user has "cherry_community_bot" as username
+2025-05-13 10:36:36,389 - ERROR - Could not resolve @MajorGroupManagerBot: No user has "majorgroupmanagerbot" as username
+2025-05-13 10:36:37,279 - ERROR - Error in group creation wizard: 'InvitedUsers' object has no attribute 'chats'
+2025-05-13 10:52:47,734 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-05-13 10:52:48,269 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-05-13 10:52:51,528 - INFO - Starting group creation wizard
+2025-05-13 10:52:51,997 - INFO - Successfully resolved user: @n0ccx
+2025-05-13 10:52:52,491 - INFO - Successfully resolved user: @blaine6661
+2025-05-13 10:52:52,966 - INFO - Successfully resolved user: @MissRose_bot
+2025-05-13 10:52:53,450 - INFO - Successfully resolved user: @safeguard
+2025-05-13 10:52:53,991 - INFO - Successfully resolved user: @cherrys
+2025-05-13 10:52:54,570 - INFO - Successfully resolved user: @MajorBuyBot
+2025-05-13 10:52:55,378 - ERROR - Error in group creation wizard: 'Updates' object is not iterable
+2025-05-13 11:30:21,131 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-05-13 11:30:21,652 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-05-13 11:30:24,820 - INFO - Starting group creation wizard
+2025-05-13 11:30:25,303 - INFO - Successfully resolved user: @n0ccx
+2025-05-13 11:30:25,769 - INFO - Successfully resolved user: @blaine6661
+2025-05-13 11:30:26,364 - INFO - Successfully resolved user: @MissRose_bot
+2025-05-13 11:30:26,851 - INFO - Successfully resolved user: @safeguard
+2025-05-13 11:30:27,302 - INFO - Successfully resolved user: @cherrys
+2025-05-13 11:30:27,814 - INFO - Successfully resolved user: @MajorBuyBot
+2025-05-13 11:30:28,414 - INFO - Created suoergroup with ID: 2536322662
+2025-05-13 11:30:28,417 - INFO - Uploading file of 1536143 bytes in 12 chunks of 131072
+2025-05-13 11:30:42,547 - ERROR - Error in group creation wizard: Invalid object ID for a chat. Make sure to pass the right types, for instance making sure that the request is designed for chats (not channels/megagroups) or otherwise look for a different one more suited\nAn example working with a megagroup and AddChatUserRequest, it will fail because megagroups are channels. Use InviteToChannelRequest instead (caused by EditChatPhotoRequest)
+2025-05-13 11:36:54,706 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-05-13 11:36:55,229 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-05-13 11:36:58,135 - INFO - Starting group creation wizard
+2025-05-13 11:36:58,599 - INFO - Successfully resolved user: @n0ccx
+2025-05-13 11:36:59,116 - INFO - Successfully resolved user: @blaine6661
+2025-05-13 11:36:59,818 - INFO - Successfully resolved user: @MissRose_bot
+2025-05-13 11:37:00,292 - INFO - Successfully resolved user: @safeguard
+2025-05-13 11:37:00,771 - INFO - Successfully resolved user: @cherrys
+2025-05-13 11:37:01,253 - INFO - Successfully resolved user: @MajorBuyBot
+2025-05-13 11:37:01,776 - INFO - Created suoergroup with ID: 2533490498
+2025-05-13 11:37:01,777 - INFO - Uploading file of 1536143 bytes in 12 chunks of 131072
+2025-05-13 11:37:15,583 - INFO - Group photo updated successfully
+2025-05-13 11:37:15,583 - INFO - Set group photo
+2025-05-13 11:37:15,584 - ERROR - Error in group creation wizard: module 'telethon.tl.functions.messages' has no attribute 'EditAboutRequest'
+2025-05-13 11:38:26,874 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-05-13 11:38:27,309 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-05-13 11:38:30,730 - INFO - Starting group creation wizard
+2025-05-13 11:38:31,240 - INFO - Successfully resolved user: @n0ccx
+2025-05-13 11:38:31,694 - INFO - Successfully resolved user: @blaine6661
+2025-05-13 11:38:32,264 - INFO - Successfully resolved user: @MissRose_bot
+2025-05-13 11:38:32,777 - INFO - Successfully resolved user: @safeguard
+2025-05-13 11:38:33,229 - INFO - Successfully resolved user: @cherrys
+2025-05-13 11:38:33,697 - INFO - Successfully resolved user: @MajorBuyBot
+2025-05-13 11:38:34,229 - INFO - Created suoergroup with ID: 2699401186
+2025-05-13 11:38:34,230 - INFO - Uploading file of 1536143 bytes in 12 chunks of 131072
+2025-05-13 11:38:43,938 - INFO - Group photo updated successfully
+2025-05-13 11:38:43,938 - INFO - Set group photo
+2025-05-13 11:38:44,415 - ERROR - Error in group creation wizard: About text has not changed (caused by EditChatAboutRequest)
+2025-05-13 12:00:25,631 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-05-13 12:00:26,049 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-05-13 12:00:29,103 - INFO - Starting group creation wizard
+2025-05-13 12:00:29,583 - INFO - Successfully resolved user: @n0ccx
+2025-05-13 12:00:30,041 - INFO - Successfully resolved user: @blaine6661
+2025-05-13 12:00:30,603 - INFO - Successfully resolved user: @MissRose_bot
+2025-05-13 12:00:31,104 - INFO - Successfully resolved user: @safeguard
+2025-05-13 12:00:31,670 - INFO - Successfully resolved user: @cherrys
+2025-05-13 12:00:32,184 - INFO - Successfully resolved user: @MajorBuyBot
+2025-05-13 12:00:32,669 - ERROR - Error in group creation wizard: Chat about too long (caused by CreateChannelRequest)
+2025-05-13 12:08:29,446 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-05-13 12:08:29,901 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-05-13 12:08:33,122 - INFO - Starting group creation wizard
+2025-05-13 12:08:33,592 - INFO - Successfully resolved user: @n0ccx
+2025-05-13 12:08:34,204 - INFO - Successfully resolved user: @blaine6661
+2025-05-13 12:08:34,921 - INFO - Successfully resolved user: @MissRose_bot
+2025-05-13 12:08:35,533 - INFO - Successfully resolved user: @safeguard
+2025-05-13 12:08:36,149 - INFO - Successfully resolved user: @cherrys
+2025-05-13 12:08:36,763 - INFO - Successfully resolved user: @MajorBuyBot
+2025-05-13 12:08:37,481 - INFO - Created suoergroup with ID: 2666307613
+2025-05-13 12:08:37,482 - INFO - Uploading file of 1536143 bytes in 12 chunks of 131072
+2025-05-13 12:08:53,151 - INFO - Group photo updated successfully
+2025-05-13 12:08:53,152 - INFO - Set group photo
+2025-05-13 12:08:53,153 - ERROR - Error in group creation wizard: name 'errors' is not defined
+2025-05-13 12:14:06,919 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-05-13 12:14:07,420 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-05-13 12:14:10,463 - INFO - Starting group creation wizard
+2025-05-13 12:14:11,107 - INFO - Successfully resolved user: @n0ccx
+2025-05-13 12:14:11,721 - INFO - Successfully resolved user: @blaine6661
+2025-05-13 12:14:12,184 - INFO - Successfully resolved user: @MissRose_bot
+2025-05-13 12:14:12,625 - INFO - Successfully resolved user: @safeguard
+2025-05-13 12:14:13,067 - INFO - Successfully resolved user: @cherrys
+2025-05-13 12:14:13,563 - INFO - Successfully resolved user: @MajorBuyBot
+2025-05-13 12:14:14,179 - INFO - Created suoergroup with ID: 2579286400
+2025-05-13 12:14:14,180 - INFO - Uploading file of 1536143 bytes in 12 chunks of 131072
+2025-05-13 12:14:28,715 - INFO - Group photo updated successfully
+2025-05-13 12:14:28,715 - INFO - Set group photo
+2025-05-13 12:14:28,716 - ERROR - Error in group creation wizard: name 'set_description' is not defined

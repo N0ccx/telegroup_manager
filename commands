@@ -1,0 +1,1 @@
+python group_creator.py --config group_config.json
