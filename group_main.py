@@ -8,7 +8,6 @@ from datetime import datetime
 from dotenv import load_dotenv
 
 
-# Setup logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -108,7 +107,7 @@ BOT_ADMIN_RIGHTS = {
     }
 }
 
-# ----------------------
+
 
 async def resolve_users(usernames):
     entities = []
@@ -295,46 +294,63 @@ async def create_group_wizard(
         await client.start()
         logger.info("Starting group creation wizard")
 
-        users = await resolve_users(user_usernames + BOT_USERNAMES)
-        if not users:
-            raise ValueError(f"No valid users found to create the group: {user_usernames + BOT_USERNAMES}")
+        human_user_entities = []
+        if user_usernames:
+            human_user_entities = await resolve_users(user_usernames)
+            if not human_user_entities:
+                logger.warning(f"Could not resolve any of the provided human users for invitation: {user_usernames}")
+        else:
+            logger.info("No human user usernames provided for invitation.")
 
 
         chat_id = await create_basic_group(group_title, group_description)
-        logger.info(f"Created suoergroup with ID: {chat_id}")
+        logger.info(f"Created supergroup with ID: {chat_id}, Title: '{group_title}'")
 
         if photo_path:
             await upload_and_set_photo(chat_id, photo_path)
-            logger.info("Set group photo")
+            # logger.info("Set group photo") # Logged within upload_and_set_photo
 
-        await set_description(chat_id, group_description)
-        logger.info("Set group description")
+        # Group description (about) is set in create_basic_group.
+        # The previous call to a non-existent set_description was redundant.
+        logger.info("Group description was set during creation.")
 
         public_link = await set_public_link(chat_id, public_username_base)
-        logger.info(f"Set public link: {public_link}")
+        if public_link:
+            logger.info(f"Set public link: {public_link}")
+        else:
+            logger.warning(f"Failed to set public link for base: {public_username_base}. The group will remain private or without a custom link.")
 
-        await invite_users(chat_id, rest_users)
-        logger.info("Invited users to the group")
+        if human_user_entities:
+            await invite_users(chat_id, human_user_entities)
+            logger.info(f"Attempted to invite {len(human_user_entities)} resolved human users to the group.")
+        else:
+            logger.info("No human users were invited (either none provided, or none could be resolved).")
 
         await promote_bots(chat_id, BOT_USERNAMES)
-        logger.info("Promoted bots to admin")
+        # logger.info("Promoted bots to admin") # Logged within promote_bots
 
         await post_and_pin_welcome(chat_id, welcome_message)
-        logger.info("Posted and pinned welcome message")
+        # logger.info("Posted and pinned welcome message") # Logged within post_and_pin_welcome
 
         setup_keyword_moderation(chat_id)
         logger.info("Setup keyword moderation")
 
-        print(f"\nGroup Created: {group_title}")
-        print(f"Public Link: {public_link or 'Private Group'}")
+        print(f"🎉 Group Created: {group_title}")
+        print(f"🔗 Public Link: {public_link or 'Private Group / Link not set'}")
 
-        print("\n[Listening for banned keywords... Ctrl+C to stop.]")
+        print("[Listening for banned keywords... Press Ctrl+C to stop.]")
         await client.run_until_disconnected()
-        await safe_telegram_call(client.send_message, chat_id, "hello!")
-        await safe_telegram_call(client(functions.channels.UpdateUsernameRequest(...)))
+        # The following lines were after run_until_disconnected and seemed like test/debug code.
+        # They would only execute after the client disconnects.
+        # await safe_telegram_call(client.send_message, chat_id, "hello!")
+        # await safe_telegram_call(client(functions.channels.UpdateUsernameRequest(...)))
 
+    except ValueError as ve:
+        logger.error(f"ValueError in group creation wizard: {ve}")
+        # Potentially re-raise or handle more gracefully depending on requirements
+        raise
     except Exception as e:
-        logger.error(f"Error in group creation wizard: {e}")
+        logger.error(f"An unexpected error occurred in group creation wizard: {e}")
         raise
 
 
