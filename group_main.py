@@ -8,6 +8,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 
 
+# Setup logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -107,7 +108,7 @@ BOT_ADMIN_RIGHTS = {
     }
 }
 
-
+# ----------------------
 
 async def resolve_users(usernames):
     entities = []
@@ -162,7 +163,7 @@ async def upload_and_set_photo(chat_id, photo_path):
             ))
             logger.info("Group photo updated successfully")
     except Exception as e:
-        logger.error(f"Failed to update photo: {e}")
+        logger.error(f"Failed to update photo: {e}")    
 
 async def set_public_link(chat_id, base_username):
     if base_username.endswith("ONSOL"):
@@ -266,19 +267,22 @@ def setup_keyword_moderation(chat_id):
 
 
 def format_description_from_community(community: dict) -> str:
-    parts = []
+    lines = []
+    lines.append(community["welcome_message"])
+    
+    raid = community.get("raid_info", {})
+    if raid:
+        lines.append(raid.get("message", ""))
+        for action in raid.get("actions", []):
+            lines.append(f"• {action}")
+    
+    if community.get("closing"):
+        lines.append(community["closing"])
+    
+    if community.get("hashtags"):
+        lines.append(" ".join(community["hashtags"]))  
 
-    if "welcome_message" in community:
-        parts.append(community["welcome_message"])
-
-    if "closing" in community:
-        parts.append(community["closing"])
-
-    if "hashtags" in community:
-        parts.append(" ".join(community["hashtags"]))
-
-    # Combine and truncate to max 255 chars
-    desc = "\n".join(parts).strip()
+    desc = "\n".join(lines).strip()
     return desc[:255]
 
 
@@ -294,63 +298,50 @@ async def create_group_wizard(
         await client.start()
         logger.info("Starting group creation wizard")
 
-        human_user_entities = []
-        if user_usernames:
-            human_user_entities = await resolve_users(user_usernames)
-            if not human_user_entities:
-                logger.warning(f"Could not resolve any of the provided human users for invitation: {user_usernames}")
-        else:
-            logger.info("No human user usernames provided for invitation.")
+        # Resolve human users
+        human_users = await resolve_users(user_usernames)
+        if not human_users:
+            logger.warning(f"No valid human users found to invite: {user_usernames}")
 
+        # Resolve bots (for promotion)
+        bot_users = await resolve_users(BOT_USERNAMES)
+        if not bot_users:
+            logger.warning(f"No valid bots found to promote: {BOT_USERNAMES}")
 
         chat_id = await create_basic_group(group_title, group_description)
-        logger.info(f"Created supergroup with ID: {chat_id}, Title: '{group_title}'")
+        logger.info(f"Created supergroup with ID: {chat_id}")
 
         if photo_path:
             await upload_and_set_photo(chat_id, photo_path)
-            # logger.info("Set group photo") # Logged within upload_and_set_photo
-
-        # Group description (about) is set in create_basic_group.
-        # The previous call to a non-existent set_description was redundant.
-        logger.info("Group description was set during creation.")
+            logger.info("Set group photo")
 
         public_link = await set_public_link(chat_id, public_username_base)
-        if public_link:
-            logger.info(f"Set public link: {public_link}")
-        else:
-            logger.warning(f"Failed to set public link for base: {public_username_base}. The group will remain private or without a custom link.")
+        logger.info(f"Set public link: {public_link}")
 
-        if human_user_entities:
-            await invite_users(chat_id, human_user_entities)
-            logger.info(f"Attempted to invite {len(human_user_entities)} resolved human users to the group.")
-        else:
-            logger.info("No human users were invited (either none provided, or none could be resolved).")
+        if human_users:
+            await invite_users(chat_id, human_users)
+            logger.info("Invited users to the group")
 
         await promote_bots(chat_id, BOT_USERNAMES)
-        # logger.info("Promoted bots to admin") # Logged within promote_bots
+        logger.info("Promoted bots to admin")
 
         await post_and_pin_welcome(chat_id, welcome_message)
-        # logger.info("Posted and pinned welcome message") # Logged within post_and_pin_welcome
+        logger.info("Posted and pinned welcome message")
 
         setup_keyword_moderation(chat_id)
         logger.info("Setup keyword moderation")
 
-        print(f"🎉 Group Created: {group_title}")
-        print(f"🔗 Public Link: {public_link or 'Private Group / Link not set'}")
+        print(f"\nGroup Created: {group_title}")
+        print(f"Public Link: {public_link or 'Private Group'}")
 
-        print("[Listening for banned keywords... Press Ctrl+C to stop.]")
+        print("\n[Listening for banned keywords... Ctrl+C to stop.]")
         await client.run_until_disconnected()
-        # The following lines were after run_until_disconnected and seemed like test/debug code.
-        # They would only execute after the client disconnects.
+        # Optionally remove or comment out the following lines if not needed:
         # await safe_telegram_call(client.send_message, chat_id, "hello!")
         # await safe_telegram_call(client(functions.channels.UpdateUsernameRequest(...)))
 
-    except ValueError as ve:
-        logger.error(f"ValueError in group creation wizard: {ve}")
-        # Potentially re-raise or handle more gracefully depending on requirements
-        raise
     except Exception as e:
-        logger.error(f"An unexpected error occurred in group creation wizard: {e}")
+        logger.error(f"Error in group creation wizard: {e}")
         raise
 
 

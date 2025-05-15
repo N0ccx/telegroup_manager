@@ -102,3 +102,27 @@
 2025-05-13 12:14:28,715 - INFO - Group photo updated successfully
 2025-05-13 12:14:28,715 - INFO - Set group photo
 2025-05-13 12:14:28,716 - ERROR - Error in group creation wizard: name 'set_description' is not defined
+2025-05-15 09:22:14,779 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-05-15 09:22:14,902 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-05-15 09:22:15,790 - INFO - Starting group creation wizard
+2025-05-15 09:22:15,949 - INFO - Successfully resolved user: @MissRose_bot
+2025-05-15 09:22:16,106 - INFO - Successfully resolved user: @safeguard
+2025-05-15 09:22:16,316 - INFO - Successfully resolved user: @cherrys
+2025-05-15 09:22:16,476 - INFO - Successfully resolved user: @MajorBuyBot
+2025-05-15 09:22:16,682 - INFO - Created suoergroup with ID: 2509596050
+2025-05-15 09:22:16,683 - INFO - Uploading file of 3290246 bytes in 26 chunks of 131072
+2025-05-15 09:22:22,864 - INFO - Group photo updated successfully
+2025-05-15 09:22:22,865 - INFO - Set group photo
+2025-05-15 09:22:22,866 - ERROR - Error in group creation wizard: name 'set_description' is not defined
+2025-05-15 09:26:07,602 - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-05-15 09:26:07,727 - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-05-15 09:26:08,754 - INFO - Starting group creation wizard
+2025-05-15 09:26:08,963 - INFO - Successfully resolved user: @MissRose_bot
+2025-05-15 09:26:09,170 - INFO - Successfully resolved user: @safeguard
+2025-05-15 09:26:09,364 - INFO - Successfully resolved user: @cherrys
+2025-05-15 09:26:09,485 - INFO - Successfully resolved user: @MajorBuyBot
+2025-05-15 09:26:09,671 - INFO - Created suoergroup with ID: 2163813529
+2025-05-15 09:26:09,672 - INFO - Uploading file of 3290246 bytes in 26 chunks of 131072
+2025-05-15 09:26:16,644 - INFO - Group photo updated successfully
+2025-05-15 09:26:16,644 - INFO - Set group photo
+2025-05-15 09:26:17,670 - ERROR - Error in group creation wizard: name 'public_link' is not defined

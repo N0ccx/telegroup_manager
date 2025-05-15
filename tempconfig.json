@@ -1,0 +1,18 @@
+{
+  "group_config": {
+    "group_title": "{{FULL_NAME}}",
+    "public_username_base": "{{SHORT_NAME}}",
+    "photo_path": "group_pic.jpg",
+    "user_usernames": []
+  },
+  "community": {
+    "name": "{{FULL_NAME}}RULES",
+    "welcome_message": "⚠️ Welcome to {{FULL_NAME}} - The future of AI on the blockchain! 🚀 | Raid Info: Join our daily X raids and help us trend! 📈 | Raid Actions: Like, RT, and comment on our posts, Use #{{SHORT_NAME}} #{{TAG_NAME}}ARMY #{{TAG_NAME}}Revolution",
+    "hashtags": [
+      "Use",
+      "#{{SHORT_NAME}}",
+      "#{{TAG_NAME}}ARMY",
+      "#{{TAG_NAME}}Revolution"
+    ]
+  }
+}
